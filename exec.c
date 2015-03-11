@@ -5,7 +5,7 @@
 ** Login   <elbouh_j@epitech.net>
 **
 ** Started on  Wed Jan 28 13:38:34 2015 jamal elbouhali
-** Last update Tue Mar 10 13:13:51 2015 jamal elbouhali
+** Last update Wed Mar 11 11:56:13 2015 jamal elbouhali
 */
 
 #include <unistd.h>
@@ -51,8 +51,6 @@ int	exec(char **com, char **path, char **env, pid_t child)
 	    my_putstr("exec error\n");
 	    return (1);
 	    }
-	  /*if ((kill(child, SIGINT)) == -1)
-	    return (1);*/
 	}
       i = i + 1;
     }

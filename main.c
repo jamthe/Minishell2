@@ -5,7 +5,7 @@
 ** Login   <elbouh_j@epitech.net>
 **
 ** Started on  Mon Jan 19 21:34:51 2015 jamal elbouhali
-** Last update Tue Mar 10 20:26:54 2015 jamal elbouhali
+** Last update Wed Mar 11 11:56:56 2015 jamal elbouhali
 */
 
 #include <stdlib.h>
@@ -36,13 +36,14 @@ char	**vir(char *buf)
 int	main(int ac, char **av, char **env)
 {
   int	i;
-  int	j = 0;
+  int	j;
   char	buf[4097];
   char	**path;
   char	**comm;
 
   (void)ac;
   (void)av;
+  j = 0;
   signal(SIGINT, SIG_IGN);
   if (env && env[0] != NULL)
     path = get_path(env);
@@ -57,6 +58,7 @@ int	main(int ac, char **av, char **env)
 	    check_exec(comm[j], path, env);
 	  j++;
 	}
+      j = 0;
       my_putstr("$> ");
     }
   my_putchar('\n');

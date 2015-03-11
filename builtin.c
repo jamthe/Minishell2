@@ -5,14 +5,13 @@
 ** Login   <elbouh_j@epitech.net>
 **
 ** Started on  Tue Jan 27 14:28:49 2015 jamal elbouhali
-** Last update Tue Mar 10 13:33:58 2015 jamal elbouhali
+** Last update Wed Mar 11 11:56:21 2015 jamal elbouhali
 */
 
 #include "my.h"
 
 int	check_builtin(char *com, char **env)
 {
-  my_putchar('a');
   if ((my_strcmp(com/*[0]*/, "cd")) == 0)
     my_cd(com/*[1]*/);
   else if ((my_strcmp(com/*[0]*/, "setenv\n")) == 0)
