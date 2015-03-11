@@ -5,7 +5,7 @@
 ** Login   <elbouh_j@epitech.net>
 **
 ** Started on  Thu Jan 22 13:56:51 2015 jamal elbouhali
-** Last update Tue Mar 10 13:13:16 2015 jamal elbouhali
+** Last update Wed Mar 11 14:13:33 2015 jamal elbouhali
 */
 
 #ifndef MY_H_
@@ -28,7 +28,7 @@ int	my_strlen(char *str);
 int	my_strcmp(char *s1, char *s2);
 char	*get_env(char *str, char **env);
 int	check_builtin(char *com, char **env);
-int	my_cd(char *com);
+int	my_cd(char *com, char **env);
 int	my_unsetenv();
 int	my_setenv();
 int	my_env(char **env);

@@ -5,15 +5,17 @@
 ** Login   <elbouh_j@epitech.net>
 **
 ** Started on  Tue Jan 27 18:37:04 2015 jamal elbouhali
-** Last update Mon Mar  9 17:24:27 2015 jamal elbouhali
+** Last update Wed Mar 11 14:12:43 2015 jamal elbouhali
 */
 
 #include <stdlib.h>
 #include <unistd.h>
 #include "my.h"
 
-int	my_cd(char *com)
+int	my_cd(char *com, char **env)
 {
+  if (com == NULL)
+    com = my_getenv("HOME=", env);
   if (chdir(com) == -1)
     my_putstr("cd fail\n");
   return (0);
