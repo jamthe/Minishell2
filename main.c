@@ -5,7 +5,7 @@
 ** Login   <elbouh_j@epitech.net>
 **
 ** Started on  Mon Jan 19 21:34:51 2015 jamal elbouhali
-** Last update Wed Mar 11 11:56:56 2015 jamal elbouhali
+** Last update Wed Mar 11 17:49:31 2015 jamal elbouhali
 */
 
 #include <stdlib.h>
@@ -28,12 +28,17 @@ char	**get_path(char **env)
 char	**vir(char *buf)
 {
   char	**comm;
+  int	i;
 
+  i = my_strlen(buf) - 1;
+  if (buf[i] == ';' && buf[i + 1] == '\0')
+    buf[i] = '\0';
   if ((comm = word_tab(buf, ';')) == NULL)
     return (NULL);
   return (comm);
 }
-int	main(int ac, char **av, char **env)
+
+void	my_all(char **env)
 {
   int	i;
   int	j;
@@ -41,13 +46,12 @@ int	main(int ac, char **av, char **env)
   char	**path;
   char	**comm;
 
-  (void)ac;
-  (void)av;
   j = 0;
   signal(SIGINT, SIG_IGN);
   if (env && env[0] != NULL)
     path = get_path(env);
   my_putstr("$> ");
+
   while ((i = read(0, buf, 4096)) > 0)
     {
       buf[i - 1] = 0;
@@ -61,6 +65,12 @@ int	main(int ac, char **av, char **env)
       j = 0;
       my_putstr("$> ");
     }
-  my_putchar('\n');
+}
+
+int	main(int ac, char **av, char **env)
+{
+  (void)ac;
+  (void)av;
+  my_all(env);
   return (0);
 }

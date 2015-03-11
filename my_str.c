@@ -5,7 +5,7 @@
 ** Login   <elbouh_j@epitech.net>
 **
 ** Started on  Mon Jan 19 21:36:30 2015 jamal elbouhali
-** Last update Mon Mar  9 14:57:07 2015 jamal elbouhali
+** Last update Wed Mar 11 17:35:18 2015 jamal elbouhali
 */
 
 #include <unistd.h>
@@ -36,9 +36,9 @@ int	my_strlen(char *str)
 {
   int	i;
 
+  i = 0;
   if (str == NULL)
     return (1);
-  i = 0;
   while (str[i] != 0)
     i++;
   return (i);
