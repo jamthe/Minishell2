@@ -5,7 +5,7 @@
 ** Login   <elbouh_j@epitech.net>
 **
 ** Started on  Wed Jan 28 13:38:34 2015 jamal elbouhali
-** Last update Mon Mar  9 12:47:40 2015 jamal elbouhali
+** Last update Tue Mar 10 13:13:51 2015 jamal elbouhali
 */
 
 #include <unistd.h>
@@ -14,17 +14,19 @@
 #include <sys/wait.h>
 #include "my.h"
 
-int	check_exec(char **com, char **path, char **env)
+int	check_exec(char *com, char **path, char **env)
 {
   pid_t	child;
+  char	**comm;
 
+  comm = word_tab(com, ' ');
   if ((child = fork()) == -1)
     {
       my_putstr("fork error");
       return (1);
     }
   if (child == 0)
-    exec(com, path, env, child);
+    exec(comm, path, env, child);
   else
     wait(NULL);
   return (0);

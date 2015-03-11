@@ -5,7 +5,7 @@
 ** Login   <elbouh_j@epitech.net>
 **
 ** Started on  Mon Jan 19 21:34:51 2015 jamal elbouhali
-** Last update Mon Mar  9 15:36:19 2015 jamal elbouhali
+** Last update Tue Mar 10 20:26:54 2015 jamal elbouhali
 */
 
 #include <stdlib.h>
@@ -13,23 +13,6 @@
 #include <stdio.h>
 #include <signal.h>
 #include "my.h"
-
-/*char	*get_line()
-{
-  int	i;
-  char	*str;
-  char	buff[4097];
-
-  i = read(0, buf, 4096);
-  if (i > 0)
-    {
-
-      return (line_alloc(buff));
-    }
-  else
-    return (NULL);
-}
-*/
 
 char	**get_path(char **env)
 {
@@ -42,9 +25,18 @@ char	**get_path(char **env)
   return (tab);
 }
 
+char	**vir(char *buf)
+{
+  char	**comm;
+
+  if ((comm = word_tab(buf, ';')) == NULL)
+    return (NULL);
+  return (comm);
+}
 int	main(int ac, char **av, char **env)
 {
   int	i;
+  int	j = 0;
   char	buf[4097];
   char	**path;
   char	**comm;
@@ -58,9 +50,13 @@ int	main(int ac, char **av, char **env)
   while ((i = read(0, buf, 4096)) > 0)
     {
       buf[i - 1] = 0;
-      comm = word_tab(buf, ' ');
-      if (check_builtin(comm, env) == 1 && buf[0] != 0)
-	check_exec(comm, path, env);
+      comm = vir(buf);
+      while (comm[j] != NULL)
+	{
+	  if (check_builtin(comm[j], env) == 1 && buf[0] != 0)
+	    check_exec(comm[j], path, env);
+	  j++;
+	}
       my_putstr("$> ");
     }
   my_putchar('\n');
